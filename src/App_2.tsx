@@ -1,66 +1,26 @@
 import { useState, useRef, useEffect } from "react";
 
-import img0 from "./assets/instabulkdownloader.com_DYkwW13lRs3_01.jpg";
-import img1 from "./assets/instabulkdownloader.com_DYkwW13lRs3_02.jpg";
-import img2 from "./assets/instabulkdownloader.com_DYkwW13lRs3_03.jpg";
-import img3 from "./assets/instabulkdownloader.com_DYkwW13lRs3_04.jpg";
-import img4 from "./assets/instabulkdownloader.com_DYkwW13lRs3_05.jpg";
-import img5 from "./assets/instabulkdownloader.com_DYkwW13lRs3_06.jpg";
-import img6 from "./assets/instabulkdownloader.com_DYkwW13lRs3_07.jpg";
-import img7 from "./assets/instabulkdownloader.com_DYkwW13lRs3_08.jpg";
-import img8 from "./assets/instabulkdownloader.com_DYkwW13lRs3_09.jpg";
+// REAL PHOTOS - A COLOR
+import img_RojoCristal from "./assets/2f858302eb5186eb-instabulkdownloader_com_DdwpGKnFARf_01.jpg";
+import img_NudeCristal from "./assets/a630cd4cabc934e5-instabulkdownloader_com_DdwpGKnFARf_02.jpg";
+import img_CollageBocetos from "./assets/cfbb23228b79640f-instabulkdownloader_com_DdwpGKnFARf_03.jpg";
+import img_MarronArch from "./assets/7b1dd68cd28a895e-instabulkdownloader_com_DdwpGKnFARf_05.jpg";
+import img_FittingDorado01 from "./assets/8347505283817156-instabulkdownloader_com_DYkwW13lRs3_01.jpg";
+import img_FittingDorado02 from "./assets/0c88c0b3ffb06855-instabulkdownloader_com_DYkwW13lRs3_02.jpg";
+import img_DoradoDorso from "./assets/5512ac194653cdc6-instabulkdownloader_com_DYkwW13lRs3_03.jpg";
+import img_DoradoFrente from "./assets/744923550fbea48b-instabulkdownloader_com_DYkwW13lRs3_04.jpg";
+import img_RojoEscamas from "./assets/29324865c67789d8-instabulkdownloader_com_DYkwW13lRs3_05.jpg";
+import img_FinalHeidi from "./assets/4d1c2ab7d227f6b2-instabulkdownloader_com_DYkwW13lRs3_06.jpg";
+import img_GrupoBackstage from "./assets/68a84e92b800d0f3-instabulkdownloader_com_DYkwW13lRs3_07.jpg";
+import img_DetalleMulticolor from "./assets/d8f78c2f7a86e540-instabulkdownloader_com_DYkwW13lRs3_08.jpg";
+import img_TopAzulMariposa from "./assets/bf9afd7dd477c561-instabulkdownloader_com_DYkwW13lRs3_09.jpg";
 
 const FONT_URL = "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Archivo+Black&family=Inter:wght@300;400;500;600&display=swap";
 
-const realImages: Record<string, string> = {
-  "cannes-01": img0,
-  "cannes-02": img1,
-  "cannes-03": img2,
-  "cannes-04": img3,
-  "cannes-05": img4,
-  "cannes-06": img5,
-  "intermoda-01": img6,
-  "intermoda-02": img7,
-  "intermoda-03": img8,
-  "intermoda-04": img0,
-  "intermoda-05": img1,
-  "intermoda-06": img2,
-  "detail-bordado-01": img3,
-  "detail-cristal-01": img4,
-  "detail-corset-01": img5,
-  "portrait-designer-01": img6,
-};
+// 5. SHOW_IMAGE_IDS global toggle
+const SHOW_IMAGE_IDS = true; // global para ocultar IDs en producción
 
-const getRealImage = (id: string) => (realImages as any)[id] || null;
-
-const SHOW_IMAGE_IDS = true;
-
-
-const ImageSlot = ({ id, ratio, className, alt }: { id: string; ratio?: string; className?: string; alt?: string }) => {
-  const realSrc = getRealImage(id);
-  return (
-    <div
-      style={{ backgroundColor: '#D6D2CB', aspectRatio: ratio || '3/4' }}
-      className={`relative w-full overflow-hidden group ${className || ''}`}
-    >
-      {realSrc ? (
-        <img
-          src={realSrc}
-          alt={alt || id}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-        />
-      ) : null}
-      {SHOW_IMAGE_IDS && (
-        <span className="absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.18em] font-mono px-2 py-1 bg-black/40 backdrop-blur text-[#F5F3EF]/80">
-          {id}
-        </span>
-      )}
-    </div>
-  );
-};
-
-
+// EDITABLE: confirmar email con cliente
 const siteData = {
   email: "hola@jesusdelagarsa.com",
 };
@@ -126,22 +86,22 @@ type Lang = "es" | "en";
 
 // MAPEO EXACTO DE IDS A FOTOS REALES A COLOR
 const IMAGE_MAP: Record<string, string> = {
-  "cannes-01": "",
-  "cannes-02": "",
-  "cannes-03": "",
-  "cannes-04": "",
-  "cannes-05": "",
-  "cannes-06": "",
-  "intermoda-01": "",
-  "intermoda-02": "",
-  "intermoda-03": "",
-  "intermoda-04": "",
-  "intermoda-05": "",
-  "intermoda-06": "",
-  "portrait-designer-01": "",
-  "detail-bordado-01": "",
-  "detail-cristal-01": "",
-  "detail-corset-01": "",
+  "cannes-01": img_RojoCristal,
+  "cannes-02": img_NudeCristal,
+  "cannes-03": img_CollageBocetos,
+  "cannes-04": img_MarronArch,
+  "cannes-05": img_FittingDorado01,
+  "cannes-06": img_FinalHeidi,
+  "intermoda-01": img_DetalleMulticolor,
+  "intermoda-02": img_TopAzulMariposa,
+  "intermoda-03": img_DoradoDorso,
+  "intermoda-04": img_DoradoFrente,
+  "intermoda-05": img_RojoEscamas,
+  "intermoda-06": img_GrupoBackstage,
+  "portrait-designer-01": img_FittingDorado02,
+  "detail-bordado-01": img_CollageBocetos,
+  "detail-cristal-01": img_RojoCristal,
+  "detail-corset-01": img_FittingDorado01,
 };
 
 type ImageSlotProps = {
